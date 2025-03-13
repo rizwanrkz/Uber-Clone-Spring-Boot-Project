@@ -27,7 +27,7 @@ public class RideRequest {
     private Point dropOffLocation;
 
     @CreationTimestamp
-    private LocalDateTime requestTime;
+    private LocalDateTime requestedTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Rider rider;
@@ -37,5 +37,7 @@ public class RideRequest {
 
     @Enumerated(EnumType.STRING)
     private RideRequestStatus rideRequestStatus;
+
+    private Double fare;
 
 }
