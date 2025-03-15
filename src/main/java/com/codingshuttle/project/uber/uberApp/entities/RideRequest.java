@@ -2,7 +2,6 @@ package com.codingshuttle.project.uber.uberApp.entities;
 
 import com.codingshuttle.project.uber.uberApp.entities.enums.PaymentMethod;
 import com.codingshuttle.project.uber.uberApp.entities.enums.RideRequestStatus;
-import com.codingshuttle.project.uber.uberApp.entities.enums.RideStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
