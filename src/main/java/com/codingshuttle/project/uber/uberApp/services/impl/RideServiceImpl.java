@@ -60,7 +60,7 @@ public class RideServiceImpl implements RideService {
 
     @Override
     public Page<Ride> getAllRidesOfDriver(Driver driver, PageRequest pageRequest) {
-        return rideRepository.findVyDriver(driver, pageRequest);
+        return rideRepository.findByDriver(driver, pageRequest);
     }
 
     private String generateRandomOTP() {

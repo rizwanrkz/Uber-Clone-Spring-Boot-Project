@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RideRepository extends JpaRepository<Ride, Long> {
-    Page<Ride> findVyDriver(Driver driver, Pageable pageRequest);
+    Page<Ride> findByDriver(Driver driver, Pageable pageRequest);
 
     Page<Ride> findByRider(Rider rider, PageRequest pageRequest);
 }
