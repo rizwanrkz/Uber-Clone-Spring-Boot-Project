@@ -1,6 +1,7 @@
 package com.codingshuttle.project.uber.uberApp.controllers;
 
 import com.codingshuttle.project.uber.uberApp.dto.*;
+import com.codingshuttle.project.uber.uberApp.services.DriverService;
 import com.codingshuttle.project.uber.uberApp.services.RiderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class RiderController {
 
     private final RiderService riderService;
+    private final DriverService driverService;
 
     @PostMapping("/requestRide")
     public ResponseEntity<RideRequestDto> requestRide(@RequestBody RideRequestDto rideRequestDto){
@@ -28,11 +30,6 @@ public class RiderController {
 
     }
 
-    @PostMapping("/rateDriver")
-    public ResponseEntity<DriverDto> rateDriver(@RequestBody RatingDto ratingDto) {
-        return ResponseEntity.ok(riderService.rateDriver(ratingDto.getRideId(), ratingDto.getRating()));
-    }
-
     @GetMapping("/getMyProfile")
     public ResponseEntity<RiderDto> getMyProfile() {
         return ResponseEntity.ok(riderService.getMyProfile());
@@ -44,5 +41,10 @@ public class RiderController {
         PageRequest pageRequest = PageRequest.of(pageOffset, pageSize,
                 Sort.by(Sort.Direction.DESC, "createdTime", "id"));
         return ResponseEntity.ok(riderService.getAllMyRides(pageRequest));
+    }
+
+    @PostMapping("/rateDriver/{rideId}/{rating}")
+    public ResponseEntity<DriverDto> rateRider(@PathVariable Long rideId, @PathVariable Integer rating) {
+        return ResponseEntity.ok(riderService.rateDriver(rideId, rating));
     }
 }

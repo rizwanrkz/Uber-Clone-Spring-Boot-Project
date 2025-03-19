@@ -2,6 +2,7 @@ package com.codingshuttle.project.uber.uberApp.services;
 
 import com.codingshuttle.project.uber.uberApp.dto.DriverDto;
 import com.codingshuttle.project.uber.uberApp.dto.RideDto;
+import com.codingshuttle.project.uber.uberApp.dto.RiderDto;
 import com.codingshuttle.project.uber.uberApp.entities.Driver;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,7 +20,7 @@ public interface DriverService {
 
     RideDto endRide(Long rideId);
 
-    RideDto rateRider(Long rideId, Integer rating);
+    RiderDto rateRider(Long rideId, Integer rating);
 
     DriverDto getMyProfile();
 
